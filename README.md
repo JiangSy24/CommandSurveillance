@@ -1,11 +1,12 @@
 # IM-Code
 # CommandSurveillance
-///下面是要导入的库
+IM代码
+# 下面是要导入的库 use_frameworks!
 workspace 'CommandSurveillance’
 
 xcodeproj 'CommandSurveillance.xcodeproj'
 
-# use_frameworks!
+
 target :CommandSurveillance do
 platform :ios, ‘8.0’
 pod "MBProgressHUD"
