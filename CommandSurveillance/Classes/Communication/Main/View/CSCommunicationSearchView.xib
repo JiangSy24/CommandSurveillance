@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="J9C-Kf-abd" customClass="CSCommunicationSearchView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUr-uf-aAh">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <color key="backgroundColor" red="0.42745098040000001" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="McJ-JT-EGe"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="sUr-uf-aAh" firstAttribute="top" secondItem="ais-BZ-EYv" secondAttribute="top" id="0k7-R3-Ieu"/>
+                <constraint firstItem="sUr-uf-aAh" firstAttribute="trailing" secondItem="ais-BZ-EYv" secondAttribute="trailing" id="3yL-kg-7GL"/>
+                <constraint firstItem="sUr-uf-aAh" firstAttribute="leading" secondItem="ais-BZ-EYv" secondAttribute="leading" id="JYi-A8-OIV"/>
+                <constraint firstItem="sUr-uf-aAh" firstAttribute="bottom" secondItem="ais-BZ-EYv" secondAttribute="bottom" id="pqK-yJ-b0h"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="ais-BZ-EYv"/>
+            <connections>
+                <outlet property="searchViewBox" destination="sUr-uf-aAh" id="XxT-1T-ZRv"/>
+            </connections>
+            <point key="canvasLocation" x="-394" y="-449"/>
+        </view>
+    </objects>
+</document>

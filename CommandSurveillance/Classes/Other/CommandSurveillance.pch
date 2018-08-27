@@ -1,0 +1,487 @@
+//
+//  CommandSurveillance.pch
+//  CommandSurveillance
+//
+//  Created by liangcong on 2018/5/17.
+//  Copyright © 2018年 liangcong. All rights reserved.
+//
+
+#ifndef CommandSurveillance_pch
+#define CommandSurveillance_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "AFNetworking.h"
+#import "MJExtension.h"
+#import <VomontNetWorking/VomontNetWorking.h>
+#import "CZHttpTool.h"
+#import "CStextField.h"
+#import "CSUrlString.h"
+#import "CSViewStyle.h"
+#import "Masonry.h"
+#import "CSUserInfo.h"
+#import "CSAccount.h"
+#import "CSAccountTool.h"
+#import "MBProgressHUD.h"
+#import "CSTabBarController.h"
+//#import "IQKeyboardManager.h"
+#import "CSChooseRootController.h"
+#import "UIView+Frame.h"
+#import "CSNavigationController.h"
+#import "UIImage+Wechat.h"
+#import "UIImage+Image.h"
+//#import "CSImageModle.h"
+#import "CSStatusTool.h"
+#import "SevenSwitch.h"
+//#import "UIView+YYAdd.h"
+#import "SDImageCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "NSString+String.h"
+#import "SSSearchBar.h"
+#import "UTPinYinHelper.h"
+#import "CSMainTabNavigation.h"
+#import "CSStatusTool.h"
+#import "XZConstants.h"
+#import "XZHeaderFile.h"
+#import "CSLoginParam.h"
+#import "NSString+IMString.h"
+#import "BGFMDB.h"
+#import "LMRegisterModle.h"
+#import "XZChatViewController.h"
+#import "IMChatManageTool.h"
+#import "MJRefresh.h"
+#import <AgoraAudioKit/AgoraRtcEngineKit.h>
+#import "LewReorderableLayout.h"
+#import "CSNTESNotificationCenter.h"
+#import "UIImageView+WebCache.h"
+#import <UIKit/UIKit.h>
+#import "Utility.h"
+#import "AppDelegate.h"
+#import "HVideoViewController.h"
+
+
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
+#import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
+#import <BaiduMapAPI_Cloud/BMKCloudSearchComponent.h>//引入云检索功能所有的头文件
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
+#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>//引入计算工具所有的头文件
+#import <BaiduMapAPI_Radar/BMKRadarComponent.h>//引入周边雷达功能所有的头文件
+#import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件
+
+// 日志输出
+#ifdef DEBUG
+#define Plog(...) NSLog(__VA_ARGS__)
+#else
+#define Plog(...)
+#endif
+
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+#define KAppDelegate (AppDelegate*)[UIApplication sharedApplication].delegate
+
+//状态条的高
+#define StatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+//得到屏幕bounds
+#define SCREEN_SIZE [UIScreen mainScreen].bounds
+//得到屏幕height
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+//得到屏幕width
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
+
+
+#ifdef DEBUG
+#define ICLog(format, ...)    NSLog(format, ##__VA_ARGS__)
+#else
+#define ICLog(format, ...)
+#endif
+
+#define UserDbName(id)    [NSString stringWithFormat:@"user_%d",id]
+#define TableDbName(id)   [NSString stringWithFormat:@"table_%d",id]
+#define SessionDbName      @"session_db"
+#define UserDicKey(id)    [NSString stringWithFormat:@"%d",id]
+
+#define weakify(var)   __weak typeof(var) weakSelf = var
+#define strongify(var) __strong typeof(var) strongSelf = var
+
+#define CSCmCellHeight      72
+
+#define XNColor(r, g, b, a)  [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+#define XNFont(font)         [UIFont systemFontOfSize:(font)]
+
+#define XNWidth_Scale        [UIScreen mainScreen].bounds.size.width/375.0f
+
+#define WMMaxDevCount       200
+
+#define CSCGColor(r, g, b)          [[UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]CGColor]
+#define CSUIColor(r, g, b)          [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define CSColorBtnBule              CSUIColor(22, 159, 232)
+#define CSColorBtnGray              [UIColor grayColor]
+#define CSColorBtnGreen             CSUIColor(119, 184, 0)
+
+#define CSQCenterColorAdjust        CSUIColor(232, 116, 82)     // 问题处理，未通过，不合格，需整改
+#define CSQCenterColorCheck         CSUIColor(255, 216, 0)      // 复查
+#define CSQCenterColorPass          CSUIColor(74, 212, 134)    // 通过，评论
+
+#define CSColorLabelGray            CSUIColor(179, 179, 179)
+
+#define CSColorLabelGreen           CSUIColor(125, 186, 48)
+#define CSColorLabelGreenEx           CSUIColor(73, 250, 8)
+
+#define CSColorZiSe                 CSUIColor(109, 138, 255)
+#define CSColorGreen                CSUIColor(12, 206, 107)
+
+#define SCREEN_WIDTH                [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT               [UIScreen mainScreen].bounds.size.height
+#define rgba(r,g,b,a)               [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#define Plog                        NSLog
+
+#define CSKeyWindow                 [UIApplication sharedApplication].keyWindow
+
+//获取导航栏+状态栏的高度
+#define getRectNavAndStatusHight \
+({\
+CGRect rectStatus = [[UIApplication sharedApplication] statusBarFrame];\    CGRect rectNav = self.navigationController.navigationBar.frame;\
+( rectStatus.size.height+ rectNav.size.height);\
+})\
+
+// 输入参数限制
+#define CSPhoneNumSize              11
+#define CSPassWordMaxSize           12
+#define CSPassWordMinSize           6
+#define CSMessageSize               4
+
+// 验证码时间限制
+#define CSMsgTimer                  60
+
+#define CSStrNull                   @""
+
+// 导航标题文字
+#define CSStrNavRegister            @"用户注册"
+#define CSStrNavSCode               @"验证码登录"
+#define CSStrNavWriteSCode          @"填写验证码"
+#define CSStrNavSetPassword         @"设置密码"
+#define CSStrNavMessage             @"消息"
+#define CSStrNavFactory             @"组织"
+#define CSStrNavFactoryName         @"组织名称"
+#define CSStrNavPersonal            @"我的"
+#define CSStrNavManage              @"管理"
+#define CSStrNavRSetPassword        @"修改密码"
+#define CSStrNavAboutUs             @"关于我们"
+#define CSStrSystemSetting          @"系统设置"
+#define CSStrNavSystemMsg           @"消息"
+#pragma ---------------------登录-----------------------
+#define CSStrLoginErr               @"信息不能为空"
+#pragma ---------------------注册-----------------------
+// 警告信息
+#define CSStrMsgPasswordErr         @"密码不一致"
+#define CSStrMsgPasswordSizeErr     @"密码位数不足"
+#define CSStrPhoneNumRegErr         @"手机号已注册"
+#define CSStrPhoneNumSizeErr        @"手机号不正确"
+// UI文字
+#define CSStrUIGetMsg               @"获取验证码"
+#define CSStrTimeFormat             @"%d 秒"
+#define StrUserHint                 @"请选择查看人"
+#define StrFactoryHint              @"请选择巡视点"
+#define CSStrChoiceDev              @"选择监控设备"
+#define CSStrCreateProblem          @"创建问题"
+#define CSStrDealProblem            @"问题处理"
+#define CSStrChoiceOrganization     @"选择巡视点"
+#define CSStrHandTour               @"智能巡视"
+
+#pragma -------------------验证码登录--------------------
+
+#pragma ------------------hud alart--------------------
+#define CSHudStrPasswordErr         @"密码不一致!"
+#define CSHudStrNeedRegester        @"需要注册账号才能修改密码!"
+
+#pragma ------------------tabbar-----------------------
+
+#define CSMsgMainFont [UIFont systemFontOfSize:15]
+#define CSMsgSystemMainFont [UIFont systemFontOfSize:17]
+#define CSMsgSystemTimeFont [UIFont systemFontOfSize:11]
+#define CSMsgSystemContentFont  [UIFont systemFontOfSize:12]
+#define CSScreenW [UIScreen mainScreen].bounds.size.width
+#define CSScreenH [UIScreen mainScreen].bounds.size.height
+#define CSTabelViewColor    CSUIColor(235, 235, 235)
+
+#define weakify(var)   __weak typeof(var) weakSelf = var
+#define strongify(var) __strong typeof(var) strongSelf = var
+
+#define CSNoticePicture @"updatePictureNotice"
+
+#define GlobalUpLoadNotification    @"UploadNotification"
+#define UpLoadPageNotification      @"UploadVedioPage"
+#define UpLoadFinish                @"UpLoadFinish"
+#define CSNoticeWifi                @"updateWifiNotice"
+#define CSNoticeAlarm               @"updateWifiNotice"
+#define CSNoticeSearchAlarm         @"searchAlarmInfo"
+#define CSNoticeDevStatus           @"devStatus"
+#define CSNoticeTeamChange          @"noticeTeamChange"
+
+#define SnapPath                [NSString stringWithFormat:@"%@/Documents/snapshot", NSHomeDirectory()]
+#define ScreenPath              [NSString stringWithFormat:@"%@/Documents/snapshotScreen", NSHomeDirectory()]
+#define PicPath                 [NSString stringWithFormat:@"%@/Documents/PicPath", NSHomeDirectory()]      //存储照片的
+#define RecordPath              [NSString stringWithFormat:@"%@/Documents/Recorder", NSHomeDirectory()]
+/** -cell-间距 */
+#define XMGTopicCellMargin 10
+
+#define SCREEN_WIDTH                    CGRectGetWidth([UIScreen mainScreen].bounds)
+#define SCREEN_HEIGHT                   CGRectGetHeight([UIScreen mainScreen].bounds)
+#define TITLE_HEIGHT                    64.f
+
+// 是否为iOS8.4
+#define isNotVersion84                  ([[[UIDevice currentDevice] systemVersion] floatValue] > 8.4)
+
+#pragma ------------------统计那的cell------------------
+#define CSSTagMargin        12
+#define CSBtnWideRe         20
+#define CSTagFont           [UIFont systemFontOfSize:12]
+#define CSBtnHeight         30
+
+#define CSCellTagMargin     15
+#define CSCellSmallWide     6
+#define CSCellSmallMargin   8
+
+#define CSMaxTagNum         15
+#define CSSnapNameFormat        @"pic_%@_%d_%d"     // [CSAccountTool userInfo].phoneNum, self.selectModel.parentid, self.selectModel.id
+
+typedef NS_ENUM(NSInteger, UpLoadStatus)
+{
+    UpLoad_Ing      =   0,      // 上传中
+    UpLoad_Ed       =   1,      // 已上传
+    Upload_NO       =   2,      // 未上传
+    Upload_Wait     =   3,      // 等待上传
+};
+
+typedef NS_ENUM(NSInteger, RegisterText)
+{
+    /// UIActivityIndicatorView.
+    RegisterPhoneNum_TextField      =   0,      // 电话号码
+    RegisterMessage_TextField       =   1,      // 短信验证
+    RegisterPassword_TextField      =   2,      // 设置密码
+    RegisterRePassword_TextField    =   3       // 重新验证密码
+};
+
+typedef NS_ENUM(NSInteger, LoginText)
+{
+    /// UIActivityIndicatorView.
+    LoginPhoneNum_TextField         =   0,      // 电话号码
+    LoginPassword_TextField         =   1,      // 密码
+};
+
+typedef enum enmHttpMsgId
+{
+    HttpMsgId_Invalid               = 0x100,    //无效消息
+    
+    HttpMsgId_GetVerifCode          = 0x101,    //获取验证码
+    HttpMsgId_Register              = 0x102,    //注册
+    HttpMsgId_LoginConfig         = 369,    //密码登录
+    HttpMsgId_LoginByVCode          = 0x104,    //验证码登录
+    HttpMsgId_Logout                = 0x105,    //登出
+    HttpMsgId_ResetPassword         = 0x106,    //重置密码
+    
+    HttpMsgId_GetPersonalIcon       = 0x107,    //获取个人头像
+    HttpMsgId_ChangePersonalIcon    = 0x108,    //修改个人头像
+    
+    HttpMsgId_GetQuestionList       = 0x109,    //获取问题清单
+    HttpMsgId_AddQuestion           = 0x10a,    //添加问题
+    HttpMsgId_DelQuestion           = 0x10b,    //删除问题
+    HttpMsgId_UpdateQuestion        = 0x10c,    //修改问题
+    
+    HttpMsgId_AddReflection         = 0x110,    //添加意见反馈
+    HttpMsgId_GetReflectionList     = 0x111,    //获取意见反馈清单
+    HttpMsgId_QueryReflection       = 0x112,    //检索意见反馈
+    
+    HttpMsgId_UpdatePassword        = 0x113,    //修改账户密码
+    
+    HttpMsgId_GetCurVersion         = 0x114,    //获取最新版本信息
+    HttpMsgId_GetHistoryVerInfo     = 0x115,    //获取历史版本记录信息
+    
+    HttpMsgId_GetSystemMessage      = 0x120,    //获取最新系统通知信息
+    HttpMsgId_GetQuestionMessage    = 0x121,    //获取最新问题列表信息
+    HttpMsgId_GetTaskMessage        = 0x122,    //获取最新任务列表信息
+    HttpMsgId_GetAlarmMessage       = 0x123,    //获取最新报警消息信息
+    
+    HttpMsgId_GetFactoryList        = 0x130,    //获取工厂列表信息
+    HttpMsgId_GetSubFactoryList     = 0x131,    //获取厂区列表信息
+    HttpMsgId_GetFactoryDevList     = 0x132,    //获取设备列表信息
+    
+    HttpMsgId_AddFactory            = 0x133,    //添加工厂信息
+    HttpMsgId_DelFactory            = 0x134,    //删除工厂信息
+    HttpMsgId_UpdateFactory         = 0x135,    //修改工厂信息
+    
+    HttpMsgId_AddSubFactory         = 0x136,    //添加厂区信息
+    HttpMsgId_DelSubFactory         = 0x137,    //删除厂区信息
+    HttpMsgId_UpdateSubFactory      = 0x138,    //修改厂区信息
+    
+    HttpMsgId_GetSubFactoryDetail   = 0x139,    //获取厂区信息
+    HttpMsgId_GetAllAccount         = 0x140,    //获取所有用户
+    HttpMsgId_AddAccount            = 0x141,    //添加用户信息
+    HttpMsgId_DelAccount            = 0x142,    //删除用户信息
+    HttpMsgId_UpdateAccount         = 0x143,    //修改用户信息
+    
+    HttpMsgId_GetAllDevice          = 0x150,    //获取所有设备
+    HttpMsgId_UpdateDevName         = 0x151,    //修改设备名称
+    HttpMsgId_DevFactoryBind        = 0x152,    //设备与某厂区绑定
+    HttpMsgId_DevAccountBind        = 0x153,    //设备与某些用户绑定
+    
+    HttpMsgId_AddProblemType        = 0x160,    //添加问题分类
+    HttpMsgId_UpdateProblemType     = 0x161,    //修改问题分类
+    HttpMsgId_GetAllProblemType     = 0x162,    //获取所有问题分类
+    HttpMsgId_DelProblemType        = 0x163,    //删除问题分类
+    
+    HttpMsgId_AddProblem            = 0x165,    //添加问题
+    HttpMsgId_DelProblem            = 0x166,    //删除问题
+    HttpMsgId_UpdateProblem         = 0x167,    //修改问题
+    HttpMsgId_GetProblemList        = 0x168,    //获取问题列表
+    
+    HttpMsgId_DeleteFragment        = 358,      // 删除分片
+    HttpMsgId_FragUpload            = 257,      // 上传分片
+    HttpMsgId_SamalFileUpload       = 260,      // 小文件上传
+    HttpMsgId_VideoFilePake         = 259,      // 视频文件打包
+} HttpMsgId;
+
+typedef NS_ENUM(NSInteger, enmCloudErrorCode)
+{
+    ErrorCode_Invalid = 0,                    //没有错误
+    
+    ErrorCode_fail = 1,                        //一般错误
+    ErrorCode_InvalidParameterEx = 2,            //参数有误（没参数/参数长度有误）hh
+    ErrorCode_GetVerifCodeFail = 3,            //获取验证码失败
+    ErrorCode_VerifCodeHasSend = 4,            //验证码已发送，请稍候
+    ErrorCode_HasRegister = 5,                //手机号已注册
+    ErrorCode_VerifCodeError = 6,            //验证码错误
+    ErrorCode_NoVerifyCode = 7,                //验证码未发送
+    ErrorCode_WriteDBFail = 8,                //写入数据库失败
+    ErrorCode_NotFindAccount = 9,            //未找到注册的手机号账户
+    ErrorCode_AccountHasLogin = 10,            //当前账号已登录
+    ErrorCode_PasswordErrorEx = 11,            //账户密码错误 hh
+    ErrorCode_NotFindUserEx = 12,                //未找到登录用户
+    ErrorCode_SamePassword = 13,            //新密码与旧密码一致
+    ErrorCode_LoadPersonalIconFail = 14,    //加载个人头像失败
+    ErrorCode_SetPersonalIconFail = 15,        //查找写入个人头像失败
+    
+    ErrorCode_FactoryNameExist = 16,        //工厂名称已存在
+    ErrorCode_FactoryNotFound = 17,            //工厂ID不存在
+    
+    ErrorCode_SubFactoryNameExist = 18,        //厂区名称已存在
+    ErrorCode_SubFactoryNotFound = 19,        //厂区ID不存在
+    
+    ErrorCode_DeviceNameExist = 20,            //设备名称已存在
+    ErrorCode_DeviceNotFound = 21,            //设备ID不存在
+    
+    ErrorCode_AccountNameExist = 22,        //账户名称已存在
+    ErrorCode_AccountIdNotFound = 23,        //账户ID不存在
+    
+    ErrorCode_ProblemTypeNameExist = 24,    //问题类型名称已存在
+    ErrorCode_ProblemTypeNotFound = 25,        //问题类型ID不存在
+    ErrorCode_ProblemTypeHasChild = 26,        //问题类型还存在子类
+    
+    ErrorCode_ReadDBFail = 27,                //读取数据库失败
+    ErrorCode_NoPermission = 28,            //没有权限
+    
+    ErrorCode_InvalidVerifyCode = 29,        //或已超时失效
+    ErrorCode_SendRegisterInviteFail = 30,    //发送注册邀请短消息失败
+    
+    ErrorCode_HasJoin = 31,                    //该用户已经被添加
+    
+    ErrorCode_ProblemNotFound = 32,            //问题ID不存在
+    ErrorCode_NoProblemDescription = 33,    //没有问题描述说明
+    
+    ErrorCode_InvalidAction = 34,            //无效的问题处理动作
+    ErrorCode_SameProblemAccount = 35,        //问题责任人和创建人不能是同一人
+    
+    ErrorCode_NoActionRight = 36,            //没有问题处理的权限
+    ErrorCode_VideoNotFound = 37,            //录像ID不存在
+    
+    ErrorCode_AsyncLoginEx = 38,                //异步登录（不一定是错误）hh
+    ErrorCode_ConnectFailEx = 39,                //连接失败 hh
+    
+    ErrorCode_InvalidVFileSvr = 40,            //无效的录像文件服务器
+    ErrorCode_WaitResultEx = 41,              //等待结果
+    ErrorCode_NotFindVFileSvr = 42,            //未找到vfilesvr
+    
+    ErrorCode_InvalidProblemSource = 43,    //无效的问题来源
+    ErrorCode_InvalidComp = 44,       // 无效的企业
+};
+
+//文件类型
+typedef enum enmVFileType
+{
+    VFileType_Invalid = 0,
+    VFileType_ImagePNG = 1,            //PNG
+    VFileType_ImageJPG = 2,            //JPG
+    VFileType_VideoMP4 = 3,            //MP4
+    VFileType_VideoMOV = 4,        //MOV
+}VFileType;
+
+typedef NS_ENUM(NSInteger, PersonalControl)
+{
+    PersonalCell_FileManage         = 0,        //文件管理
+    PersonalCell_DevList            = 1,        //设备列表
+    PersonalCell_Needle             = 2,        //修改密码
+    PersonalCell_Password           = 3,        //修改密码
+    PersonalCell_Setting            = 4,        //设置
+    PersonalCell_AboutUs            = 5,        //关于我们
+    PersonalCell_Logout             = 6,        //注销用户
+};
+
+
+typedef NS_ENUM(NSInteger, PersonalSetPasswordControl)
+{
+    PersonalOrPword_TextField       = 0,        //原密码
+    PersonalNewPword_TextField      = 1,        //新密码
+    PersonalRePword_TextField       = 2,        //重复密码
+};
+
+typedef NS_ENUM(NSInteger, MessageID)
+{
+    MessageID_QACenter              = 0,        //消息中心
+    MessageID_SystemMessage         = 1,        //系统消息
+    MessageID_Alarm                 = 2,        //报警
+};
+
+//消息类型
+typedef NS_ENUM(NSInteger, enmWorkMessageType)
+{
+    WorkMessageType_Question = 1,        //问题消息
+    WorkMessageType_Task,                //任务消息
+    WorkMessageType_Alarm,            //报警消息
+    WorkMessageType_System,            //系统通知
+};
+
+//问题状态
+typedef NS_ENUM(NSInteger, enmWMProblemStatus)
+{
+    WMProblemStatus_Invalid = 0,
+    WMProblemStatus_Pending = 1,        //不合格 (待整改)
+    WMProblemStatus_FinishAdjust = 2,   // 已整改 （待复查）
+    WMProblemStatus_NoAdjust = 3,       // 无需整改 （待复查）
+    WMProblemStatus_Ok = 4,             // 整改通过
+    WMProblemStatus_NotOk = 5,          // 整改未通过（待整改）
+};
+
+//问题处理动作
+typedef NS_ENUM(NSInteger, enmWMProblemAction)
+{
+    WMProblemAction_Invalide = 0,
+    WMProblemAction_Creat = 1,          // 创建问题
+    WMProblemAction_Discuss = 2,        // 评论
+    WMProblemAction_Resolve = 3,        // 整改
+    WMProblemAction_Recheck = 4,        // 复查
+};
+
+// 现场巡视剪辑功能
+#define VideoLen        60.f    // 一分钟，正好是一屏幕
+#define VideoCount      8      // 一屏幕，八块
+
+#define CZAccountFileName [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"account.data"]
+
+#define CZIPListFile [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"iplist.data"]
+
+#define CZUserFileName [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"user.data"]
+
+#endif /* CommandSurveillance_pch */
