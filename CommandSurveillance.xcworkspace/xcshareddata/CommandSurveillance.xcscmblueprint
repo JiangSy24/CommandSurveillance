@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ee47d454-7218-4f51-9046-1219e57c548e",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "ee47d454-7218-4f51-9046-1219e57c548e" : {
+
+    },
+    "71d77a3e-66a6-411a-946a-0d0b887e5a74++2398" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "ee47d454-7218-4f51-9046-1219e57c548e" : 0,
+    "71d77a3e-66a6-411a-946a-0d0b887e5a74++2398" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6BA498A9-24B5-4789-8658-4420D6830489",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "ee47d454-7218-4f51-9046-1219e57c548e" : "zhihuiyun\/",
+    "71d77a3e-66a6-411a-946a-0d0b887e5a74++2398" : "..\/..\/yundd"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CommandSurveillance",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOSClient\/CommandSurveillance\/CommandSurveillance.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.0.180\/yundd",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "71d77a3e-66a6-411a-946a-0d0b887e5a74++2398"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.0.180\/zhihuiyun",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ee47d454-7218-4f51-9046-1219e57c548e"
+    }
+  ]
+}
