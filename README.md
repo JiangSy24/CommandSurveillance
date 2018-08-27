@@ -1,6 +1,7 @@
 # IM-Code
 # CommandSurveillance
-IM代码 路径：CommandSurveillance/Classes/IMTool 这个里面的设计是值得大家学习的，后期会封成一个framework，提供外部服务。
+IM代码，从项目需求的提炼到设计到UI到编码都由我一人完成。
+特别注意 路径：CommandSurveillance/Classes/IMTool 这个里面的设计思想值得大家学习的，后期会封成一个framework，提供外部服务。
 # 下面是要导入的库 use_frameworks!
 workspace 'CommandSurveillance’
 
